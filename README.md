@@ -1,7 +1,6 @@
 # Online Library Management System (OLMS)
 
 The Online Library Management System (OLMS) is a client-server application developed in C. It provides functionalities for both library administrators and members, facilitating efficient management and access to library resources. The OLMS is built using system calls to perform diverse tasks such as managing processes, handling files, implementing file locking, managing multithreading, and facilitating interprocess communication. Socket programming is employed to establish client-server communication, enabling concurrent access to the library database by multiple clients.
-Functionalities
 
 ## The OLMS is equipped with the following functionalities:
 
@@ -14,7 +13,7 @@ Functionalities
 ## Project Structure
 
 * client.c: Contains the client-side code for interacting with the library management system.
-* server.c: Contains the server-side code that handles requests from clients (not provided in the given code, but assumed to exist).
+* server.c: Contains the server-side code that handles requests from clients.
 
 ## Prerequisites
 
@@ -38,7 +37,7 @@ Functionalities
     **Description:** Handles the login process for existing and new members, respectively. It prompts for username and password and sends the credentials to the server for validation.
     **Libraries Used:**
     1. stdio.h for input/output operations
-    2.  string.h for string manipulation
+    2. string.h for string manipulation
     3. sys/socket.h and arpa/inet.h for socket programming
 
 * Administrative Access
@@ -87,16 +86,16 @@ Functionalities
 * **File-Locking Mechanisms**
 
     **Description:** Ensures data consistency and protects critical data sections.
-    **Implementation:** This would typically be handled on the server-side using mutexes (pthread_mutex_t) to lock critical sections of code that manage shared resources. The specific implementation is assumed to be in server.c and is crucial for ensuring that multiple clients do not simultaneously modify the same data, preventing data corruption.
+    **Implementation:** This would typically be handled on the server-side using mutexes (pthread_mutex_t) to lock critical sections of code that manage shared resources. The specific implementation is in server.c and is crucial for ensuring that multiple clients do not simultaneously modify the same data, preventing data corruption.
 
 * **Concurrent Access**
 
     **Description:** The system employs socket programming to handle multiple client connections simultaneously.
-    **Implementation:** This would typically involve using threading or fork to handle each client connection in parallel on the server-side. The client-side code provided uses socket(), connect(), send(), and recv() functions from the sys/socket.h and arpa/inet.h libraries to communicate with the server.
+    **Implementation:** This would typically involve using threading or fork to handle each client connection in parallel on the server-side. The client-side code uses socket(), connect(), send(), and recv() functions from the sys/socket.h and arpa/inet.h libraries to communicate with the server.
     **Libraries Used:**
     * sys/socket.h: for socket communication
     * arpa/inet.h: for internet operations
-    * unistd.h for: close operation
+    * unistd.h: for close operation
 
 ## Additional Functionalities: Fine Calculation
 * **Borrowing book:** This function prompts the user to enter the borrow date (in the format YYYY-MM-DD) and sends the borrow request to the server. If the borrow is successful, the book is marked as borrowed.
